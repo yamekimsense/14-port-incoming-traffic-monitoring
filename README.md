@@ -2,6 +2,9 @@
 
 Find the zombie port, of which interface is up but there is no traffic because the host is actually down.
 
+Youtube 
+Korean : https://youtu.be/xyAGMKlPfXs
+English : https://youtu.be/Ck_Ks8HNjIc
 
 
 ## Use Case Description
