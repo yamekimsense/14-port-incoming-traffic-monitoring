@@ -1,11 +1,76 @@
-# 14-port-incoming-traffic-monitoring 
+# port-incoming-traffic-monitoring or zombie host finder
 
-This is the python code especailly run on the Catalyst 9000 Guestshell.
-It monitors the incoming traffic and if no, make the log for the network admin.
-
-See the PDF and visit the youtube.
-
-https://youtu.be/Ck_Ks8HNjIc - English
+Find the zombie port, of which interface is up but there is no traffic because the host is actually down.
 
 
-https://youtu.be/xyAGMKlPfXs - Korean
+
+## Use Case Description
+
+In the factory, the most import host is the manufacturing machine.
+However, it has the very poor networking function like printer and sometime very old.
+
+Sometimes, the manufacturing machine interface is up but there is no traffic.
+If this “zombie host” can be detected, the factory effiency will be higher.
+If the catalyst can find out, it’s one of the unique feature of IOS XE.
+
+
+
+## Installation
+
+Install two rpm file for SNMP-WALK install.
+Modify interface.ini file to determine which port to monitor.
+Run the python code periodically by EEM.
+
+
+## Configuration
+
+Run the SNMP-WALK and find the interface number.
+Modify the interface.ini file.
+
+
+
+## Usage
+
+By EEM, it runs and detects the port which is up but no traffic comes.
+
+
+
+### DevNet Sandbox
+
+[DevNet Sandbox](https://developer.cisco.com/site/sandbox/)
+
+
+## How to test the software
+
+Run on the IOS-XE.
+
+
+
+## Known issues
+
+none.
+
+
+
+## Getting help
+
+Contact me.
+
+
+
+
+## Getting involved
+
+Works on python3.
+
+
+
+## Credits and references
+
+none.
+
+----
+
+## Licensing info
+
+See the license file.
