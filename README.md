@@ -6,6 +6,10 @@ Youtube
 Korean : https://youtu.be/xyAGMKlPfXs
 English : https://youtu.be/Ck_Ks8HNjIc
 
+## Prerequisites
+
+Catalyst 9300, 9400, 9500, 9600 with 16.9 or above
+Guestshell enabled
 
 ## Use Case Description
 
@@ -18,14 +22,14 @@ If the catalyst can find out, it’s one of the unique feature of IOS XE.
 
 
 
-## Installation and Reproduce
+## Steps to Reproduce
 
-Install NET-SNMP-UTILS using yum commands.
+Install NET-SNMP-UTILS using yum commands on the guestshell.
 
 Run the snmpwalk to know the interface number:
  snampwalk -v 1 -c <snmp-read-only string> IP_address ifname
 
-Modify interface.ini file to determine which port to monitor.
+Insert the interface number, which you want to monitor, in the file name  interface.ini.
 
 Run the python code periodically by EEM of cat9300 with this config:
 
@@ -35,3 +39,10 @@ Run the python code periodically by EEM of cat9300 with this config:
    action 3.0 cli command "guestshell run python python file name”
 
 
+## Result Example
+
+c9300-48p-16.12.2#show log 
+
+(omiited unrelated things)
+
+*Aug 23 07:0:14.484 *SYS-7-USERLOG_DEBUG: Message from tty4(user id:): Gi1/0/2 has 21089 packets during 14seconds.
