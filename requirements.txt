@@ -1,0 +1,4 @@
+install <net-snmp-utils> using yum command at the guestshell as
+  sudo yum install -y net-snmp-utils
+  
+Edit interface.ini file which includes the interface what you want to monitor.
