@@ -18,22 +18,20 @@ If the catalyst can find out, it’s one of the unique feature of IOS XE.
 
 
 
-## Installation
+## Installation and Reproduce
 
-Install two rpm file for SNMP-WALK install.
+Install NET-SNMP-UTILS using yum commands.
+
+Run the snmpwalk to know the interface number:
+ snampwalk -v 1 -c <snmp-read-only string> IP_address ifname
+
 Modify interface.ini file to determine which port to monitor.
-Run the python code periodically by EEM.
 
+Run the python code periodically by EEM of cat9300 with this config:
 
-## Configuration
-
-Run the SNMP-WALK and find the interface number.
-Modify the interface.ini file.
-
-
-
-## Usage
-
-By EEM, it runs and detects the port which is up but no traffic comes.
+  event manager applet <name>
+   event timer watchdog time <interval>
+   action 1.0 cli command "enable"
+   action 3.0 cli command "guestshell run python python file name”
 
 
