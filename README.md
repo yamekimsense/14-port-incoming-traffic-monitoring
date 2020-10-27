@@ -6,10 +6,12 @@ Youtube
 Korean : https://youtu.be/xyAGMKlPfXs
 English : https://youtu.be/Ck_Ks8HNjIc
 
+
 ## Prerequisites
 
 Catalyst 9300, 9400, 9500, 9600 with 16.9 or above
 Guestshell enabled
+
 
 ## Use Case Description
 
@@ -29,14 +31,14 @@ Install NET-SNMP-UTILS using yum commands on the guestshell.
 Run the snmpwalk to know the interface number:
  snampwalk -v 1 -c <snmp-read-only string> IP_address ifname
 
-Insert the interface number, which you want to monitor, in the file name  interface.ini.
+Modify interface.ini filw with the interface number, which you want to monitor.
 
-Run the python code periodically by EEM of cat9300 with this config:
+Run the python code (620-4.py) periodically by EEM of cat9300 with this config:
 
   event manager applet <name>
    event timer watchdog time <interval>
    action 1.0 cli command "enable"
-   action 3.0 cli command "guestshell run python python file name”
+   action 3.0 cli command "guestshell run python 620-4.py”
 
 
 ## Result Example
